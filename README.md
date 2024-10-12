@@ -1,66 +1,16 @@
-import 'dart:async';
+# prj_koneksii
 
-import 'package:flutter/material.dart';
+A new Flutter project.
 
-void main() {
-  runApp(const MyApp());
-}
+## Getting Started
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+This project is a starting point for a Flutter application.
 
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const Home(),
-    );
-  }
-}
+A few resources to get you started if this is your first Flutter project:
 
-class Home extends StatefulWidget {
-  const Home({super.key});
+- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
+- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-  @override
-  State<Home> createState() => _HomeState();
-}
-
-class _HomeState extends State<Home> {
-  late bool isConnected;
-
-  final Connectivity _connectivity = Connectivity();
-
-  StreamSubscription<ConnectivityResult>? _connectivitySubscription;
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    isConnected = false;
-  }
-
-  Future<void> _initConnectionState() async {
-    final result = await _connectivity.checkConnectivity();
-
-    setState(() {
-      isConnected = result != ConnectivityResult.none;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Check Internet Connection"),
-        backgroundColor: Colors.blue,
-      ),
-      body: const Center(
-        child: Text("Test"),
-      ),
-    );
-  }
-}
+For help getting started with Flutter development, view the
+[online documentation](https://docs.flutter.dev/), which offers tutorials,
+samples, guidance on mobile development, and a full API reference.
